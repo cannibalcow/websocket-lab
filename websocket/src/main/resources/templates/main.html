@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Main</title>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="jumbotron">
+			<h1 id="data">Date!</h1>
+			<p>Websocket streaming date</p>
+		</div>
+
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				console.log("starT");
+				var sock = new SockJS("http://localhost:8080/logSocket");
+
+				sock.onopen = function() {
+					console.log("open");
+					sock.send("msfg");
+				};
+
+				sock.onmessage = function(e) {
+					console.log(e.data);
+					$("#data").text(e.data);
+				};
+
+				sock.onclose = function() {
+					console.log("close");
+				};
+			});
+		</script>
+	</div>
+</body>
+</html>
