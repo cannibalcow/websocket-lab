@@ -1,6 +1,5 @@
 package com.sorkmos.lab.websocket.cfg;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.WebSocketHandler;
@@ -13,7 +12,6 @@ import com.sorkmos.lab.websocket.handler.MessageHandler;
 
 @Configuration
 @EnableWebSocket
-@EnableAutoConfiguration
 public class WebSocketConfig implements WebSocketConfigurer {
 
 	@Override
@@ -26,4 +24,3 @@ public class WebSocketConfig implements WebSocketConfigurer {
 		return new PerConnectionWebSocketHandler(MessageHandler.class);
 	}
 }
-
