@@ -1,2 +1,2 @@
 # websocket-lab
-Spring boot websocket lab with a socketjs.
+Spring boot websocket lab using SockJS displaying a watch.
